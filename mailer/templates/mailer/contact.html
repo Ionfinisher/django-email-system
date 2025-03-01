@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Envoyer un mail</title>
+    <!-- Lien vers un fichier CSS pour styliser le formulaire -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <h1>Envoyer un mail</h1>
+    {% if success %}
+    <p style="color: green">Votre message a bien été envoyé !</p>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>
